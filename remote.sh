@@ -195,7 +195,17 @@ sudo chmod 600 /etc/elasticsearch/http.p12
 cat << FILTER > /tmp/filter.conf
 input {
   file {
-    path => ["/tmp/access.log"]
+    path => ["/tmp/access_1.log"]
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+  file {
+    path => ["/tmp/access_2.log"]
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+  }
+  file {
+    path => ["/tmp/access_3.log"]
     start_position => "beginning"
     sincedb_path => "/dev/null"
   }

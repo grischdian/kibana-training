@@ -25,7 +25,9 @@ for i in $(seq 0 $(expr $TN - 1)); do
         ssh tux@$NODE sudo bash /tmp/remote.sh
         if [[ $b -eq 1 ]]
         then
-            scp access.log tux@$NODE:/tmp/access.log
+            scp access_1.log tux@$NODE:/tmp/access_1.log
+            scp access_2.log tux@$NODE:/tmp/access_2.log
+            scp access_3.log tux@$NODE:/tmp/access_3.log
             ssh tux@$NODE sudo systemctl restart logstash
 	    sleep 10
             ssh tux@$NODE sudo metricbeat setup --dashboards
